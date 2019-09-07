@@ -17,10 +17,13 @@ class App extends Component {
     console.log('Component did mount');
   }
 
-  onInputChange = (event) => {
-    const inputValue = event.target.value;
+  componentDidUpdate() {
+    console.log('component did update');
+  }
+
+  onInputChange = event => {
     this.setState({
-      inputValue,
+      inputValue: event.target.value
     });
   };
 
