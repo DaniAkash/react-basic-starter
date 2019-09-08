@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from "prop-types";
 
 const CustomInputField = ({
     label,
@@ -28,6 +28,15 @@ const CustomInputField = ({
             />
         </div>
     )
+};
+
+CustomInputField.propTypes = {
+    label: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    onCustomFieldChange: PropTypes.func.isRequired,
+    targetState: PropTypes.string.isRequired
 };
         
 export default CustomInputField;
