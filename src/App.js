@@ -31,6 +31,12 @@ class App extends Component {
     });
   };
 
+  onCustomInputFieldChange = event => {
+    this.setState({
+      customInputValue: event.target.value
+    })
+  };
+
   render() {
     console.log('Render');
 
@@ -53,6 +59,7 @@ class App extends Component {
           label={customInputLabel}
           placeholder={customInputPlaceholder}
           value={customInputValue}
+          onCustomFieldChange={this.onCustomInputFieldChange}
         />
       </>
     )

@@ -4,7 +4,8 @@ import React from 'react';
 const CustomInputField = ({
     label,
     placeholder,
-    value
+    value,
+    onCustomFieldChange
 }) => {
     return (
         <div className="form-group">
@@ -16,6 +17,7 @@ const CustomInputField = ({
                 id="name" 
                 placeholder={placeholder}
                 required={true}
+                onChange={onCustomFieldChange}
             />
         </div>
     )
