@@ -40,6 +40,10 @@ class App extends Component {
     });
   };
 
+  submitForm = () => {
+    // form submission logic goes here...
+  };
+
   render() {
     console.log('Render');
 
@@ -61,22 +65,24 @@ class App extends Component {
           placeholder="Add text here"
           onChange={this.onInputChange}
         />
-        <CustomInputField
-          type={'text'}
-          label={customInputLabel}
-          placeholder={customInputPlaceholder}
-          value={customInputValue}
-          onCustomFieldChange={this.onCustomInputFieldChange}
-          targetState={"customInputValue"}
-        />
-        <CustomInputField
-          type={'email'}
-          label={customEmailLabel}
-          placeholder={customEmailPlaceholder}
-          value={customEmailValue}
-          onCustomFieldChange={this.onCustomInputFieldChange}
-          targetState={"customEmailValue"}
-        />
+        <form onSubmit={this.submitForm}>
+          <CustomInputField
+            type={'text'}
+            label={customInputLabel}
+            placeholder={customInputPlaceholder}
+            value={customInputValue}
+            onCustomFieldChange={this.onCustomInputFieldChange}
+            targetState={"customInputValue"}
+          />
+          <CustomInputField
+            type={'email'}
+            label={customEmailLabel}
+            placeholder={customEmailPlaceholder}
+            value={customEmailValue}
+            onCustomFieldChange={this.onCustomInputFieldChange}
+            targetState={"customEmailValue"}
+          />
+        </form>
       </>
     )
   }
