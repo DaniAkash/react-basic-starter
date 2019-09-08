@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CustomInputField from './CommonComponents/CustomInputField/CustomInputField';
 import './App.css';
 
 class App extends Component {
@@ -11,6 +12,9 @@ class App extends Component {
 
   state = {
     inputValue: "Dani",
+    customInputLabel: "Name",
+    customInputPlaceholder: "Enter your name",
+    customInputValue: "Custom field!",
   };
 
   componentDidMount() {
@@ -30,7 +34,12 @@ class App extends Component {
   render() {
     console.log('Render');
 
-    const { inputValue } = this.state;
+    const { 
+      inputValue, 
+      customInputLabel, 
+      customInputPlaceholder,
+      customInputValue
+    } = this.state;
 
     return(
       <>
@@ -39,6 +48,11 @@ class App extends Component {
           value={inputValue} 
           placeholder="Add text here"
           onChange={this.onInputChange}
+        />
+        <CustomInputField
+          label={customInputLabel}
+          placeholder={customInputPlaceholder}
+          value={customInputValue}
         />
       </>
     )
