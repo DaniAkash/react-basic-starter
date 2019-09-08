@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 const CustomInputField = ({
-    label,
-    placeholder,
-    value,
-    type,
-    onCustomFieldChange,
-    targetState
+    label = "",
+    placeholder = "",
+    value = "",
+    type = "",
+    onCustomFieldChange = () => null,
+    targetState = ""
 }) => {
     
     const changeHandler = event => {
