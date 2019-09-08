@@ -5,19 +5,26 @@ const CustomInputField = ({
     label,
     placeholder,
     value,
-    onCustomFieldChange
+    type,
+    onCustomFieldChange,
+    targetState
 }) => {
+    
+    const changeHandler = event => {
+        onCustomFieldChange(event, targetState);
+    };
+
     return (
         <div className="form-group">
             <label htmlFor="name">{label}</label>
             <input 
-                type="text" 
+                type={type} 
                 value={value}
                 className="form-control" 
                 id="name" 
                 placeholder={placeholder}
                 required={true}
-                onChange={onCustomFieldChange}
+                onChange={changeHandler}
             />
         </div>
     )

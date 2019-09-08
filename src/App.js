@@ -15,6 +15,9 @@ class App extends Component {
     customInputLabel: "Name",
     customInputPlaceholder: "Enter your name",
     customInputValue: "Custom field!",
+    customEmailLabel: "Email",
+    customEmailPlaceholder: "Enter your email",
+    customEmailValue: ""
   };
 
   componentDidMount() {
@@ -31,10 +34,10 @@ class App extends Component {
     });
   };
 
-  onCustomInputFieldChange = event => {
+  onCustomInputFieldChange = (event, targetState) => {
     this.setState({
-      customInputValue: event.target.value
-    })
+      [targetState]: event.target.value,
+    });
   };
 
   render() {
@@ -44,7 +47,10 @@ class App extends Component {
       inputValue, 
       customInputLabel, 
       customInputPlaceholder,
-      customInputValue
+      customInputValue,
+      customEmailPlaceholder,
+      customEmailValue,
+      customEmailLabel
     } = this.state;
 
     return(
@@ -56,10 +62,20 @@ class App extends Component {
           onChange={this.onInputChange}
         />
         <CustomInputField
+          type={'text'}
           label={customInputLabel}
           placeholder={customInputPlaceholder}
           value={customInputValue}
           onCustomFieldChange={this.onCustomInputFieldChange}
+          targetState={"customInputValue"}
+        />
+        <CustomInputField
+          type={'email'}
+          label={customEmailLabel}
+          placeholder={customEmailPlaceholder}
+          value={customEmailValue}
+          onCustomFieldChange={this.onCustomInputFieldChange}
+          targetState={"customEmailValue"}
         />
       </>
     )
